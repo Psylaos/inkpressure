@@ -15,7 +15,7 @@ body{
   background-repeat: no-repeat;
   padding-top: 10%;
   animation: shake;
-  animation-duration: .6s;
+  animation-duration: .5s;
 }
 html, body {
   width: 100%;
@@ -26,7 +26,7 @@ html, body {
 
 </style>
 
-<iframe src="{% static 'media/spray_audio.mp3' %}" allow="autoplay" id="audio" style="display:none"></iframe>
+<iframe id="audio" src="{% static 'media/spray_audio.mp3' %}" allow="autoplay"  style="display:none"></iframe>
 <audio controls preload="auto" autoplay style="display:none">
   <source src="{% static 'media/spray_audio.mp3' %}" type="audio/mpeg">
 </audio>
