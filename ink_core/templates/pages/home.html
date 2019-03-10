@@ -1,6 +1,34 @@
 {% extends "base.html" %}
 {% load staticfiles %}
+{% block title %} Inkpressure.com {% endblock %}
+
+{% block extra_js %}
+{% endblock %}
+
 
 
  {% block content %}
+<style>
+body{
+  background-image: url("{% static 'images/background.svg' %}");
+  background-size: cover;
+  background-repeat: no-repeat;
+  padding-top: 10%;
+  animation: shake;
+  animation-duration: .6s;
+}
+html, body {
+  width: 100%;
+  height: 100%;
+  font-family: Comfortaa, sans-serif;
+  text-align: center;
+}
+
+</style>
+
+<iframe src="{% static 'media/spray_audio.mp3' %}" allow="autoplay" id="audio" style="display:none"></iframe>
+<audio controls preload="auto" autoplay style="display:none">
+  <source src="{% static 'media/spray_audio.mp3' %}" type="audio/mpeg">
+</audio>
+
       {% endblock content %}

@@ -1,5 +1,5 @@
 <component name="ProjectRunConfigurationManager">
-  <configuration default="false" name="mobil" type="Python.DjangoServer" factoryName="Django server" singleton="true">
+  <configuration default="false" name="mobil" type="Python.DjangoServer" factoryName="Django server" singleton="false">
     <module name="ink_core" />
     <option name="INTERPRETER_OPTIONS" value="" />
     <option name="PARENT_ENVS" value="true" />
@@ -16,7 +16,7 @@
     <option name="port" value="8000" />
     <option name="host" value="192.168.1.173" />
     <option name="additionalOptions" value="" />
-    <option name="browserUrl" value="" />
+    <option name="browserUrl" value="http://192.168.1.173:8000/" />
     <option name="runTestServer" value="false" />
     <option name="runNoReload" value="false" />
     <option name="useCustomRunCommand" value="true" />
