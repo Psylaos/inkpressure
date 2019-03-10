@@ -16,7 +16,7 @@ body{
   background-image: url("{% static 'images/background.svg' %}");
   background-size: cover;
   background-repeat: no-repeat;
-  padding-top: 10%;
+  padding-top: 35%;
   animation: shake;
   animation-duration: .6s;
 }
@@ -26,30 +26,53 @@ html, body {
   font-family: Comfortaa, sans-serif;
   text-align: center;
 }
+
 </style>
 
 <iframe id="audio" src="{% static 'media/spray_audio.mp3' %}" allow="autoplay"  style="display:none"></iframe>
 <audio controls preload="auto" autoplay style="display:none">
   <source src="{% static 'media/spray_audio.mp3' %}" type="audio/mpeg">
 </audio>
+<div class="row">
+<div class="col-12" style="display: block">
+ <div id="color-picker-container"></div>
+</div>
+</div>
 
 <div class="container">
-  <div id="color-triage">palette <button onclick="createpalette()">create</button></div>
+  <div id="color-triage">
+    <h1>My Palette</h1>
     <div id="palette">
+    <button class="btn-success btn-lg" onclick="createpalette()">ORDER MY CUSTOM SPRAY PAINT</button></div>
       order details
       <table id="ptable">
         <tr><td>Name</td><td>Color</td><td>Custom</td></tr>
       </table>
     </div>
-  <div id="color-picker-container"></div>
   </div>
 <script>
 var picker = new iro.ColorPicker("#color-picker-container", {
-  // Set the size of the color picker UI
-  width: 320,
-  height: 320,
-  // Set the initial color to red
-  color: "#f00"
+  borderWidth: 5,
+  color: "#000234",
+  layout: [
+    {
+      component: iro.ui.Wheel,
+        options: {
+          borderColor: '#ffffff',
+          height: 200,
+          handleRadius: 15,
+
+        }
+    },
+    {
+      component: iro.ui.Slider,
+        options: {
+        borderColor: "#ffffff",
+        handleRadius: 15,
+        sliderHeight: 20,
+      }
+    }
+  ]
 });
 function componentToHex(c) {
     var hex = c.toString(16);
@@ -78,9 +101,10 @@ function createpalette(){
 }
 function triage(color) {
   document.getElementById('color-triage').innerHTML += '<div class="triage-box" id="triage-'+color.hexString+'" style="background-color:'+color.hexString+'">' +
-    '<a href="#" onclick="removefrompalette(\''+color.hexString+'\')">X</a>' +
+
     '<input id="label-'+color.hexString+'" type="text" size="10" value="[label]">' +
     'custom <input id="custom-'+color.hexString+'" type="checkbox">' +
+    '<a href="#" onclick="removefrompalette(\''+color.hexString+'\')"><div btn-danger>remove<div></a>' +
     '</div>';
 }
 picker.on("input:end", triage)

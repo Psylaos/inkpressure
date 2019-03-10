@@ -1,15 +1,16 @@
 div.triage-box {
   width:200px;
+    border-radius: 7px;
+
 }
 div#color-triage {
   width:330px;
   height:200px;
-  background-color:white;
-  float:right;
+  background-color: #000234;
+  border-radius: 7px;
 }
 div#palette {
-  width:330px;
+  width:500px;
   height:200px;
   background-color:gray;
-  float:left;
 }
